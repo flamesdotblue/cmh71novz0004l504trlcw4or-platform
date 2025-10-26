@@ -1,62 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import Spline from '@splinetool/react-spline';
 import { ArrowRight, Star } from 'lucide-react';
+import InteractiveBackground from './InteractiveBackground';
 
 export default function Hero() {
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const onMove = (e) => {
-      const rect = el.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      setMouse({ x, y });
-    };
-    el.addEventListener('mousemove', onMove);
-    return () => el.removeEventListener('mousemove', onMove);
-  }, []);
-
   return (
-    <section id="home" ref={sectionRef} className="relative min-h-[100dvh] w-full overflow-hidden">
-      {/* 3D scene background */}
-      <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/Gt5HUob8aGDxOUep/scene.splinecode" style={{ width: '100%', height: '100%' }} />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
-      </div>
-
-      {/* Animated grid + glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-40 mix-blend-screen"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle at 20% 20%, rgba(16,185,129,0.06), transparent 40%), radial-gradient(circle at 80% 0%, rgba(59,130,246,0.06), transparent 35%)',
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-20"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)',
-          backgroundSize: '60px 60px, 60px 60px',
-          maskImage: 'radial-gradient(90% 60% at 50% 40%, black 60%, transparent 100%)',
-          WebkitMaskImage: 'radial-gradient(90% 60% at 50% 40%, black 60%, transparent 100%)',
-          animation: 'grid-move 24s linear infinite',
-        }}
-      />
-
-      {/* Spotlight cursor aura */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: `radial-gradient(550px 550px at ${mouse.x}px ${mouse.y}px, rgba(16,185,129,0.14), transparent 60%)`,
-        }}
-      />
+    <section id="home" className="relative min-h-[100dvh] w-full overflow-hidden">
+      {/* Interactive background */}
+      <InteractiveBackground />
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl flex-col items-center justify-center px-6 text-center">
@@ -130,13 +81,9 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Ambient corner glow */}
+      {/* Ambient corner glows */}
       <CornerGlow position="top-left" />
       <CornerGlow position="bottom-right" />
-
-      <style>{`
-        @keyframes grid-move { 0% { background-position: 0px 0px, 0px 0px; } 100% { background-position: 120px 120px, 120px 120px; } }
-      `}</style>
     </section>
   );
 }

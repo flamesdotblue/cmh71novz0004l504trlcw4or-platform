@@ -35,7 +35,6 @@ export default function Header() {
           {[
             { href: '#home', label: 'Home' },
             { href: '#work', label: 'Work' },
-            { href: '#about', label: 'About' },
             { href: '#contact', label: 'Contact' },
           ].map((item) => (
             <a key={item.href} className={linkBase} href={item.href}>

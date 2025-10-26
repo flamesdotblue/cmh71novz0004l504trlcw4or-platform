@@ -1,7 +1,6 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Showcase from './components/Showcase';
-import About from './components/About';
 import Contact from './components/Contact';
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
       <main>
         <Hero />
         <Showcase />
-        <About />
         <Contact />
       </main>
     </div>

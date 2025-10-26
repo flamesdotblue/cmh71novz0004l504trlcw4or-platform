@@ -2,7 +2,7 @@ import { Mail, Github, Linkedin } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative border-t border-white/10 bg-black py-24">
+    <section id="contact" className="relative border-top border-white/10 bg-black py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/0 p-8 md:p-12">
           <div className="pointer-events-none absolute -top-10 -right-10 h-48 w-48 rounded-full bg-emerald-400/20 blur-3xl" />
