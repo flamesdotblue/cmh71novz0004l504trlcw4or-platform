@@ -1,6 +1,7 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Projects from './components/Projects';
+import Showcase from './components/Showcase';
+import About from './components/About';
 import Contact from './components/Contact';
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <Projects />
+        <Showcase />
+        <About />
         <Contact />
       </main>
     </div>

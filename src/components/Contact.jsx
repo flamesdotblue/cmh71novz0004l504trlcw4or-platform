@@ -3,10 +3,11 @@ import { Mail, Github, Linkedin } from 'lucide-react';
 export default function Contact() {
   return (
     <section id="contact" className="relative border-t border-white/10 bg-black py-24">
-      <div className="mx-auto max-w-5xl px-6">
+      <div className="mx-auto max-w-6xl px-6">
         <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/0 p-8 md:p-12">
           <div className="pointer-events-none absolute -top-10 -right-10 h-48 w-48 rounded-full bg-emerald-400/20 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-10 -left-10 h-48 w-48 rounded-full bg-blue-500/10 blur-3xl" />
+
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white text-center">
             Let’s build the future
           </h2>
@@ -40,9 +41,7 @@ export default function Contact() {
               </a>
             </div>
           </div>
-          <p className="mt-10 text-center text-xs text-zinc-500">
-            © {new Date().getFullYear()} Futura — Crafted with precision and care.
-          </p>
+          <p className="mt-10 text-center text-xs text-zinc-500">© {new Date().getFullYear()} Futura — Crafted with precision and care.</p>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Rocket } from 'lucide-react';
 
 export default function Header() {
@@ -12,7 +12,7 @@ export default function Header() {
   }, []);
 
   const linkBase =
-    'relative text-sm md:text-[15px] text-zinc-200 hover:text-white transition-colors';
+    'relative text-sm md:text-[15px] text-zinc-200 hover:text-white transition-colors group';
 
   return (
     <header
@@ -34,12 +34,13 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-8">
           {[
             { href: '#home', label: 'Home' },
-            { href: '#projects', label: 'Projects' },
+            { href: '#work', label: 'Work' },
+            { href: '#about', label: 'About' },
             { href: '#contact', label: 'Contact' },
           ].map((item) => (
             <a key={item.href} className={linkBase} href={item.href}>
               <span className="absolute -bottom-2 left-0 h-px w-0 bg-gradient-to-r from-emerald-400/0 via-emerald-400 to-emerald-400/0 transition-all duration-500 group-hover:w-full" />
-              <span className="relative group">{item.label}</span>
+              <span className="relative">{item.label}</span>
             </a>
           ))}
         </nav>
